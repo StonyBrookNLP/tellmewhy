@@ -1,0 +1,10 @@
+theme: jekyll-theme-cayman
+
+title: 'TellMeWhy'
+
+tagline: TellMeWhy | TellMeWhy dataset | Why question answering | Narrative Understanding
+
+show_downloads: true
+
+plugins:
+  - jekyll-seo-tag

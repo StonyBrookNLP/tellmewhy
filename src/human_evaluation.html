@@ -1,0 +1,449 @@
+<!-- Bootstrap v3.0.3 -->
+<link href="https://s3.amazonaws.com/mturk-public/bs30/css/bootstrap.min.css" rel="stylesheet" />
+<style type="text/css">.main-section {
+        margin-bottom: 15px;
+        padding: 10px 10px;
+    }
+    .sentence {
+        font-weight: bold;
+    }
+    .hidden {
+        display: none;
+    }
+    h1 {
+        background-color: #ffbbff !important;
+        color: black;
+        padding: 0.25em;
+        font-size: 32px;
+        font-weight: bold;
+    }
+    h2 {
+        font-size: 24px;
+        font-weight: bold;
+    }
+    div {
+        font-size: 16px;
+    }
+    p {
+        font-size: 16px;
+    }
+    body * {
+        font-family: sans-serif, Verdana, Geneva;
+    }
+    .panel {
+        border: none;
+    }
+    .panel-primary {
+        border: none;
+        width: 700px;
+    }
+
+    .label {
+        font-size: 16px;
+    }
+    .blue{color: #0000FF;}
+    .red{color: #FF0000;}
+    .grey{color: #777777;}
+    .instr * {}
+
+    .emph {
+        font-weight: bold;
+    }
+    .form-control {}
+
+    input[type="checkbox"] + label {
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        background-color: #ffffff;
+        cursor: pointer;
+        border: 2px solid #444444;
+        border-radius: 3px;
+        margin-right: 25px;
+    }
+
+    input[type="checkbox"]:checked + label {
+        background-color: #999999;
+    }
+
+    .slidecontainer {
+        text-align: center;
+        width: 100%; /* Width of the outside container */
+    }
+
+    .slider {
+        -webkit-appearance: none;  /* Override default CSS styles */
+        appearance: none;
+        width: 40%; /* Full-width */
+        height: 10px; /* Specified height */
+        background: #b4b4b4; /* Grey background */
+        outline: none; /* Remove outline */
+        opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+        -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+        transition: opacity .2s;
+    }
+
+    /* Mouse-over effects */
+    .slider:hover {
+        opacity: 1; /* Fully shown on mouse-over */
+    }
+
+    /* The slider handle (use webkit (Chrome, Opera, Safari, Edge) and moz (Firefox) to override default look) */
+    .slider::-webkit-slider-thumb {
+        -webkit-appearance: none; /* Override default look */
+        appearance: none;
+        width: 25px; /* Set a specific slider handle width */
+        height: 25px; /* Slider handle height */
+        background: #ffffff; /* Green background */
+        border: 2px solid #444444;
+        border-radius: 3px;
+        cursor: pointer; /* Cursor on hover */
+    }
+
+    .slider::-moz-range-thumb {
+        width: 25px; /* Set a specific slider handle width */
+        height: 25px; /* Slider handle height */
+        background: #ffffff; /* Green background */
+        border: 2px solid #cc00cc;
+        border-radius: 3px;
+        cursor: pointer; /* Cursor on hover */
+    }
+
+    .disabled-slider {
+        -webkit-appearance: none;  /* Override default CSS styles */
+        appearance: none;
+        width: 40%; /* Full-width */
+        height: 10px; /* Specified height */
+        background: #b4b4b4; /* Grey background */
+        outline: none; /* Remove outline */
+        opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+        -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+        transition: opacity .2s;
+    }
+
+    /* The slider handle (use webkit (Chrome, Opera, Safari, Edge) and moz (Firefox) to override default look) */
+    .disabled-slider::-webkit-slider-thumb {
+        -webkit-appearance: none; /* Override default look */
+        appearance: none;
+        width: 0; /* Set a specific slider handle width */
+        height: 0; /* Slider handle height */
+        background: #ffffff; /* Green background */
+        border: 0;
+    }
+
+    .disabled-slider::-moz-range-thumb {
+        width: 0; /* Set a specific slider handle width */
+        height: 0; /* Slider handle height */
+        background: #ffffff; /* Green background */
+        border: 0;
+    }
+</style>
+<script src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script><script type="text/javascript">
+    function toggleExamples(){
+        if ((document.getElementById("examples").style.display) =="block"){
+            document.getElementById("examples").style.display="none";
+        }
+        else{
+            document.getElementById("examples").style.display="block";
+        }
+    }
+
+    var utf8ByteArrayToString = function(bytes) {
+      var out = [], pos = 0, c = 0;
+      while (pos < bytes.length) {
+        var c1 = bytes[pos++];
+        if (c1 < 128) {
+          out[c++] = String.fromCharCode(c1);
+        } else if (c1 > 191 && c1 < 224) {
+          var c2 = bytes[pos++];
+          out[c++] = String.fromCharCode((c1 & 31) << 6 | c2 & 63);
+        } else if (c1 > 239 && c1 < 365) {
+          // Surrogate Pair
+          var c2 = bytes[pos++];
+          var c3 = bytes[pos++];
+          var c4 = bytes[pos++];
+          var u = ((c1 & 7) << 18 | (c2 & 63) << 12 | (c3 & 63) << 6 | c4 & 63) -
+                  0x10000;
+          out[c++] = String.fromCharCode(0xD800 + (u >> 10));
+          out[c++] = String.fromCharCode(0xDC00 + (u & 1023));
+        } else {
+          var c2 = bytes[pos++];
+          var c3 = bytes[pos++];
+          out[c++] =
+            String.fromCharCode((c1 & 15) << 12 | (c2 & 63) << 6 | c3 & 63);
+        }
+      }
+      return out.join('');
+    };
+
+    function displayEmoji() {
+      $(this).text(utf8ByteArrayToString(JSON.parse($(this).attr('data-emoji-bytes'))));
+    }
+
+    function toggleInstructions() {
+      if ($('#toggle_instructions').html() == "Show the instructions (<strong>Please click&nbsp;if&nbsp;this is your first time</strong>)") {
+        $('#toggle_instructions').html("Hide the instructions");
+        $('#instruction_content').show();
+      } else {
+        $('#toggle_instructions').html("Show the instructions (<strong>Please click&nbsp;if&nbsp;this is your first time</strong>)");
+        $('#instruction_content').hide();
+      }
+    }
+    $( document ).ready(function() {
+      $('span.emoji-bytes').each(displayEmoji);
+    });
+
+    function getInputValue(){
+        // Selecting the input element and get its value 
+        var answer = document.getElementById("editTextBox").value;
+        var is0 = document.getElementById("influence_sentence_0").value;
+        var is1 = document.getElementById("influence_sentence_1").value;
+        var is2 = document.getElementById("influence_sentence_2").value;
+        var is3 = document.getElementById("influence_sentence_3").value;
+        var is4 = document.getElementById("influence_sentence_4").value;
+        
+        // Displaying the value
+    }
+</script>
+<meta charset="utf-8" />
+<title></title>
+<section class="container main-section">
+<div class="row col-xs-12 col-md-12">
+<div class="panel panel-primary">
+<div class="panel panel-primary" style="border-width: 0px; border-style: solid; border-color: rgb(255, 255, 255);">
+<h2 border-image:="" border-left-style:="" border-right-style:="" border-top-style:="" border-width:="" class="panel-heading" helvetica="" style="font-size: 25px; text-align: center;"><strong><span style="color: rgb(12, 37, 40);">Judging validity of answers to why questions in stories</span></strong></h2>
+
+<p><span id="toggle_instructions" onclick="toggleInstructions()" style="color:blue;font-size:16px;cursor:hand;border-bottom:1px solid">Show the instructions (<strong>Please click&nbsp;if&nbsp;this is your first time</strong>)</span></p>
+
+<div id="instruction_content" style="display: none">&nbsp;
+<h2>Instructions</h2>
+
+<div class="panel-body" style="font-size: 13px;">
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;"><span style="font-size: 15px;">Thank you for participating&nbsp;</span>in this HIT!</p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;">We are trying to gauge how humans and machines answer why-questions using information learned from a given story.&nbsp;</p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;">You will be shown a short story, a related question and a possible answer to that question.</p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;">You will have to answer a few simple questions based on it.</p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;">&nbsp;</p>
+
+<ul>
+	<li class="instr" style="font-size: 15px; line-height: 20px; width: 640px;">Please read the story thoroughly.</li>
+	<li class="instr" style="font-size: 15px; line-height: 20px; width: 640px;">An answer is stongly grammatical if it follows all the rules of English grammar.</li>
+	<li class="instr" style="font-size: 15px; line-height: 20px; width: 640px;">It is grammatical if there is a mistake in tense, number, punctuation or something minor.</li>
+	<li class="instr" style="font-size: 15px; line-height: 20px; width: 640px;">It is comprehensible if there are clear grammatical mistakes but its meaning can be inferred.</li>
+	<li class="instr" style="font-size: 15px; line-height: 20px; width: 640px;">The validity of the answer is dependent on if the information presented in the answer can be inferred (implicitly or explicitly) from the story.</li>
+	<li class="instr" style="font-size: 15px; line-height: 20px; width: 640px;">An answer is considered invalid if it does not give a plausible reason for the question asked and states an irrelevant piece of information instead.</li>
+	<li class="instr" style="font-size: 15px; line-height: 20px; width: 640px;">The degree of relevance and validity of an answer can vary. Make sure you select the option you agree with most.</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;">Some examples are provided below.</p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px; border:3px; border-style:solid; border-color:#000000; padding: 1em;"><u>Story</u>: Alan thought he would make a good poker player. He had seen it on tv, and it looked easy. He decided to enter a poker tournament. Alan lost in the first round. He now realized that he may need a lot of practice to be good at it.</p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;"><u>Question</u>: Why did Alan lose in the first round?</p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;"><u>Answer</u>: Alan inexperienced poker player.</p>
+
+<p class="instr">&nbsp;</p>
+
+<p><b class="instr" style="font-size: 14px; line-height: 20px; width: 640px;">Is the answer shown above grammatical?</b></p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;"><input id="grammatical_1" type="radio" value="-2" /> Strongly Ungrammatical<br />
+<input id="grammatical_1" type="radio" value="-1" /> Ungrammatical<br />
+<input checked="checked" id="grammatical_1" type="radio" value="0" /> Comprehensible<br />
+<input id="grammatical_1" type="radio" value="1" /> Grammatical<br />
+<input id="grammatical_1" type="radio" value="2" /> Strongly Grammatical</p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;">&nbsp;</p>
+
+<p><b class="instr" style="font-size: 14px; line-height: 20px; width: 640px;">For the given question, I think the answer is valid and makes sense with the story:</b></p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;"><input id="valid_1" type="radio" value="-2" /> Strongly Disagree<br />
+<input id="valid_1" type="radio" value="-1" /> Disagree<br />
+<input id="valid_1" type="radio" value="0" /> Neutral<br />
+<input id="valid_1" type="radio" value="1" /> Agree<br />
+<input checked="checked" id="valid_1" type="radio" value="2" /> Strongly Agree</p>
+
+<p>&nbsp;</p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;">The answer sentence is clearly not grammatical. However, it&#39;s meaning can still be inferred and it is a valid assumption given the information in the story. So, the answer itself is also valid.</p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;">&nbsp;</p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px; border:3px; border-style:solid; border-color:#000000; padding: 1em;"><u>Story</u>: Alan thought he would make a good poker player. He had seen it on tv, and it looked easy. He decided to enter a poker tournament. Alan lost in the first round. He now realized that he may need a lot of practice to be good at it.</p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;"><u>Question</u>: Why did he decide enter a poker tournament?</p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;"><u>Answer</u>: Alan was a great poker player.</p>
+
+<p class="instr">&nbsp;</p>
+
+<p><b class="instr" style="font-size: 14px; line-height: 20px; width: 640px;">Is the answer shown above grammatical?</b></p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;"><input id="grammatical_2" type="radio" value="-2" /> Strongly Ungrammatical<br />
+<input id="grammatical_2" type="radio" value="-1" /> Ungrammatical<br />
+<input id="grammatical_2" type="radio" value="0" /> Comprehensible<br />
+<input id="grammatical_2" type="radio" value="1" /> Grammatical<br />
+<input checked="checked" id="grammatical_2" type="radio" value="2" /> Strongly Grammatical</p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;">&nbsp;</p>
+
+<p><b class="instr" style="font-size: 14px; line-height: 20px; width: 640px;">For the given question, I think the answer is valid and makes sense with the story:</b></p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;"><input checked="checked" id="valid_2" type="radio" value="-2" /> Strongly Disagree<br />
+<input id="valid_2" type="radio" value="-1" /> Disagree<br />
+<input id="valid_2" type="radio" value="0" /> Neutral<br />
+<input id="valid_2" type="radio" value="1" /> Agree<br />
+<input id="valid_2" type="radio" value="2" /> Strongly Agree</p>
+
+<p>&nbsp;</p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;">Above, the given answer contradicts information conveyed in the story (that Alan was a novice poker player). So, it is not a valid answer. In fact, this is the opposite of what can be inferred from the story.</p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;">&nbsp;</p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px; border:3px; border-style:solid; border-color:#000000; padding: 1em;"><u>Story</u>: Dave and Buster were friends. One night, they were feeling hungry. They decided to go for dinner. Dave wanted to eat Thai food. So, they went to Thai Villa in the city.</p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;"><u>Question</u>: Why were Dave and Buster friends?</p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;"><u>Answer</u>: Dave and buster know each other and have similar interests.</p>
+
+<p class="instr">&nbsp;</p>
+
+<p><b class="instr" style="font-size: 14px; line-height: 20px; width: 640px;">Is the answer shown above grammatical?</b></p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;"><input id="grammatical_3" type="radio" value="-2" /> Strongly Ungrammatical<br />
+<input id="grammatical_3" type="radio" value="-1" /> Ungrammatical<br />
+<input id="grammatical_3" type="radio" value="0" /> Comprehensible<br />
+<input checked="checked" id="grammatical_3" type="radio" value="1" /> Grammatical<br />
+<input id="grammatical_3" type="radio" value="2" /> Strongly Grammatical</p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;">&nbsp;</p>
+
+<p><b class="instr" style="font-size: 14px; line-height: 20px; width: 640px;">For the given question, I think the answer is valid and makes sense with the story:</b></p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;"><input id="valid_3" type="radio" value="-2" /> Strongly Disagree<br />
+<input id="valid_3" type="radio" value="-1" /> Disagree<br />
+<input id="valid_3" type="radio" value="0" /> Neutral<br />
+<input checked="checked" id="valid_3" type="radio" value="1" /> Agree<br />
+<input id="valid_3" type="radio" value="2" /> Strongly Agree</p>
+
+<p>&nbsp;</p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;">Above, even though the information in the answer is not explicitly present in the narrative, it is reasonable to assume that Dave and Buster are friends because they know each other and have shared interests they can bond over.</p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;">&nbsp;</p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px; border:3px; border-style:solid; border-color:#000000; padding: 1em;"><u>Story</u>: Alan thought he would make a good poker player. He had seen it on tv, and it looked easy. He decided to enter a poker tournament. Alan lost in the first round. He now realized that he may need a lot of practice to be good at it.</p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;"><u>Question</u>: Why did he see it on tv?</p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;"><u>Answer</u>: Alan read the newspaper.</p>
+
+<p class="instr">&nbsp;</p>
+
+<p><b class="instr" style="font-size: 14px; line-height: 20px; width: 640px;">Is the answer shown above grammatical?</b></p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;"><input id="grammatical_4" type="radio" value="-2" /> Strongly Ungrammatical<br />
+<input id="grammatical_4" type="radio" value="-1" /> Ungrammatical<br />
+<input id="grammatical_4" type="radio" value="0" /> Comprehensible<br />
+<input id="grammatical_4" type="radio" value="1" /> Grammatical<br />
+<input checked="checked" id="grammatical_4" type="radio" value="2" /> Strongly Grammatical</p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;">&nbsp;</p>
+
+<p><b class="instr" style="font-size: 14px; line-height: 20px; width: 640px;">For the given question, I think the answer is valid and makes sense with the story:</b></p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;"><input id="valid_4" type="radio" value="-2" /> Strongly Disagree<br />
+<input checked="checked" id="valid_4" type="radio" value="-1" /> Disagree<br />
+<input id="valid_4" type="radio" value="0" /> Neutral<br />
+<input id="valid_4" type="radio" value="1" /> Agree<br />
+<input id="valid_4" type="radio" value="2" /> Strongly Agree</p>
+
+<p>&nbsp;</p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;">Above, the given answer does not have anything to do with the question that has been asked. So, it is not a valid answer.</p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;">&nbsp;</p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px; border:3px; border-style:solid; border-color:#000000; padding: 1em;"><u>Story</u>: Dave and Buster were friends. One night, they were feeling hungry. They decided to go for dinner. Dave wanted to eat Thai food. So, they went to Thai Villa in the city.</p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;"><u>Question</u>: Why were Dave and Buster feeling hungry?</p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;"><u>Answer</u>: Dave and want something.</p>
+
+<p class="instr">&nbsp;</p>
+
+<p><b class="instr" style="font-size: 14px; line-height: 20px; width: 640px;">Is the answer shown above grammatical?</b></p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;"><input id="grammatical_5" type="radio" value="-2" /> Strongly Ungrammatical<br />
+<input id="grammatical_5" type="radio" value="-1" /> Ungrammatical<br />
+<input id="grammatical_5" type="radio" value="0" /> Comprehensible<br />
+<input id="grammatical_5" type="radio" value="1" /> Grammatical<br />
+<input checked="checked" id="grammatical_5" type="radio" value="2" /> Strongly Grammatical</p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;">&nbsp;</p>
+
+<p><b class="instr" style="font-size: 14px; line-height: 20px; width: 640px;">For the given question, I think the answer is valid and makes sense with the story:</b></p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;"><input checked="checked" id="valid_5" type="radio" value="-2" /> Strongly Disagree<br />
+<input id="valid_5" type="radio" value="-1" /> Disagree<br />
+<input id="valid_5" type="radio" value="0" /> Neutral<br />
+<input id="valid_5" type="radio" value="1" /> Agree<br />
+<input id="valid_5" type="radio" value="2" /> Strongly Agree</p>
+
+<p>&nbsp;</p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;">The answer is not a grammatical sentence and it&#39;s meaning cannot be inferred. So, it is not a valid answer either.</p>
+
+<p class="instr" style="font-size: 15px; line-height: 20px; width: 640px;">&nbsp;</p>
+</div>
+</div>
+
+<p><em>Contact us: <u><a href="mailto:yklal95@gmail.com" target="_top"> yklal95@gmail.com </a></u></em></p>
+
+<section>
+<fieldset>&nbsp;
+<h2>Task</h2>
+
+<p class="hidden">${narrative_meta}</p>
+
+<p class="narrative" style="border:3px; border-style:solid; border-color:#000000; padding: 1em;"><u>Story</u>: ${narrative}</p>
+
+<p class="hidden">${question_meta}</p>
+
+<p class="hidden">${is_ques_answerable}</p>
+
+<p class="narrative"><b><u>Question: ${question}</u></b></p>
+
+<p class="narrative"><u>Answer</u>: ${ques_answer}</p>
+
+<p><b>Is the answer shown above grammatical?</b></p>
+<input id="grammatical" name="is_ques_ans0_grammatical" required="" type="radio" value="-2" /> Strongly Ungrammatical<br />
+<input id="grammatical" name="is_ques_ans0_grammatical" type="radio" value="-1" /> Ungrammatical<br />
+<input id="grammatical" name="is_ques_ans0_grammatical" type="radio" value="0" /> Comprehensible<br />
+<input id="grammatical" name="is_ques_ans0_grammatical" type="radio" value="1" /> Grammatical<br />
+<input id="grammatical" name="is_ques_ans0_grammatical" type="radio" value="2" /> Strongly Grammatical
+<p><b>For the given question, I think the answer is valid and makes sense with the story:</b></p>
+<input id="valid" name="is_ques_ans0_valid" required="" type="radio" value="-2" /> Strongly Disagree<br />
+<input id="valid" name="is_ques_ans0_valid" type="radio" value="-1" /> Disagree<br />
+<input id="valid" name="is_ques_ans0_valid" type="radio" value="0" /> Neutral<br />
+<input id="valid" name="is_ques_ans0_valid" type="radio" value="1" /> Agree<br />
+<input id="valid" name="is_ques_ans0_valid" type="radio" value="2" /> Strongly Agree
+<hr />
+<p>Comments and feedback (This is optional. Please leave a comment if you have any questions, find issues, etc.)</p>
+<textarea class="form-control" cols="120" name="Comments" rows="5"></textarea></fieldset>
+
+<section>&nbsp;</section>
+</section>
+</div>
+</div>
+</div>
+</section>
