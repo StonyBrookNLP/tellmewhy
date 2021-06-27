@@ -3,8 +3,9 @@
 TellMeWhy is a large-scale crowdsourced dataset made up of more than **30k questions and free-form answers** concerning why characters in short narratives perform the actions described.
 Since a question can have many valid answers, we also release an easy-to-use **human evaluation suite** that should be used to correctly evaluate models for this why question answering task.
 Our paper "TellMeWhy: A Dataset for Answering Why-Questions in Narratives" has been accepted to Findings of [ACL 2021](https://2021.aclweb.org).
-The camera ready version will be available on ArXiv soon.
-For now, it can be found [here](TellMeWhy.pdf).
+The camera ready version is available on ArXiv [here](https://arxiv.org/abs/2106.06132).
+It can also be found [here](TellMeWhy.pdf).
+The video for the ACL Findings talk can be found [here](https://www.youtube.com/watch?v=vl5KnITgx34) and the slides are [here](TellMeWhy-Slides.pdf).
 
 <p align="center">
   <img align="middle" src="images/dataset_example.png" alt="dataset example" width="350"/>
