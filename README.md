@@ -2,10 +2,12 @@
 
 TellMeWhy is a large-scale crowdsourced dataset made up of more than **30k questions and free-form answers** concerning why characters in short narratives perform the actions described.
 Since a question can have many valid answers, we also release an easy-to-use **human evaluation suite** that should be used to correctly evaluate models for this why question answering task.
-Our paper "TellMeWhy: A Dataset for Answering Why-Questions in Narratives" has been accepted to Findings of [ACL 2021](https://2021.aclweb.org).
+Our paper "TellMeWhy: A Dataset for Answering Why-Questions in Narratives" published in Findings of [ACL-IJCNLP 2021](https://2021.aclweb.org).
 The camera ready version is available on ArXiv [here](https://arxiv.org/abs/2106.06132).
+The Anthology version is available [here](https://aclanthology.org/2021.findings-acl.53/).
 It can also be found [here](TellMeWhy.pdf).
 The video for the ACL Findings talk can be found [here](https://www.youtube.com/watch?v=vl5KnITgx34) and the slides are [here](TellMeWhy-Slides.pdf).
+This work was also presented in a poster session at the [GEM workshop](https://gem-benchmark.com/workshop) at ACL-IJCNLP 2021.
 
 <p align="center">
   <img align="middle" src="images/dataset_example.png" alt="dataset example" width="350"/>
@@ -126,25 +128,22 @@ We will update this when the formal proceedings are published.
 
 ```
 @inproceedings{lal-etal-2021-tellmewhy,
-    title = "TellMeWhy: A Dataset for Answering Why-Questions in Narratives",
+    title = "{T}ell{M}e{W}hy: A Dataset for Answering Why-Questions in Narratives",
     author = "Lal, Yash Kumar  and
       Chambers, Nathanael  and
       Mooney, Raymond  and
       Balasubramanian, Niranjan",
-    booktitle = "Findings of the Association for Computational Linguistics: ACL 2021",
+    booktitle = "Findings of the Association for Computational Linguistics: ACL-IJCNLP 2021",
     month = aug,
     year = "2021",
     address = "Online",
     publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2021.findings-acl.53",
+    doi = "10.18653/v1/2021.findings-acl.53",
+    pages = "596--610",
 }
 ```
 
 ## Contributors
 
-[Yash Kumar Lal](https://www3.cs.stonybrook.edu/~ylal/)
-
-[Nate Chambers](https://www.usna.edu/Users/cs/nchamber/)
-
-[Raymond Mooney](https://www.cs.utexas.edu/~mooney/)
-
-[Niranjan Balasubramanian](https://www3.cs.stonybrook.edu/~niranjan/)
+[Yash Kumar Lal](https://www3.cs.stonybrook.edu/~ylal/), [Nate Chambers](https://www.usna.edu/Users/cs/nchamber/), [Raymond Mooney](https://www.cs.utexas.edu/~mooney/), [Niranjan Balasubramanian](https://www3.cs.stonybrook.edu/~niranjan/)
