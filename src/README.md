@@ -36,6 +36,7 @@ You can use this as input for human evaluation of your model's predictions.
 5. After the evaluation is complete, you can use the raw output from MTurk with `analyse_human_evaluation_output.py` to obtain performance statistics.
 This also calculates weighted Fleiss Kappa to gauge inter-annotator agreement. <br>
 Example usage: `python analyse_human_evaluation_output.py --input-file mturk_output.csv`.
+
 This results in numbers similar to the ones used for Figure 2 in the [TellMeWhy](https://www3.cs.stonybrook.edu/~ylal/files/papers/acl2021F.pdf) paper.
 
 ## Automatic Evaluation Steps
@@ -49,6 +50,7 @@ Your predictions file should contain the following columns: 'narrative', 'questi
 Please add your model's inference in the `predicted_answer` column.
 3. Run the `automatic_evaluation.py` script with the required arguments.
 Example usage: `python automatic_evaluation.py --test-output-file test_full_model_predictions.csv --log-file test_full_model.auto_metrics --temp-dir temp-dir-name`.
+
 This results in numbers similar to the ones used for Table 4 in the [TellMeWhy](https://www3.cs.stonybrook.edu/~ylal/files/papers/acl2021F.pdf) paper.
 
 ## Contact
