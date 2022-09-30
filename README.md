@@ -55,6 +55,15 @@ Both csv and json files contain the same information described below:
  - gram_ann - if available, this contains 3 annotator judgments about the grammaticality of the answer on a Likert scale (-2 to 2)
  - val_ann - if available, this contains 3 annotator judgments about the validity of the answer on a Likert scale (-2 to 2)
 
+The dataset is also available on HuggingFace [here](https://huggingface.co/datasets/StonyBrookNLP/tellmewhy).
+To load it, you can use the following code snippet:
+```python
+from datasets import load_dataset
+
+tellmewhy = load_dataset('StonyBrookNLP/tellmewhy')
+```
+If you use the version from HuggingFace, please carefully read the instructions on the dataset card about how to evaluate your model on our dataset.
+
 ## Task & Evaluation
 
 This dataset was primarily built to advance research into answering why questions in narratives.
