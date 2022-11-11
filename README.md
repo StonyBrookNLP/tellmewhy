@@ -27,6 +27,7 @@ This work was also presented in a poster session at the [GEM workshop](https://g
 
 The test and annotated split are exclusive and combined together to form test_full.
 The dataset can be downloaded in [JSON](https://drive.google.com/file/d/13eZfq0PuvQug7A25OnyRbfjf9eYuGW5s/view?usp=sharing) format or in [CSV](https://drive.google.com/file/d/1FHKVMmbfh25M64mXVRD8Tb6gYCliKWi2/view?usp=sharing) format.
+The test data to submit to the leaderboard can be downloaded in CSV format from [here](https://drive.google.com/file/d/14hqA7TdDmt42WOb-gNV5JnsW2g_u0-UI/view?usp=sharing).
 
 The downloaded folder contains the following files:
 ```
